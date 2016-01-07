@@ -340,8 +340,8 @@ angular.module('dndLists', [])
         var targetArray = scope.$eval(attr.dndList);
         $timeout(function() {
           targetArray.splice(index, 0, transferredObject);
+          invokeCallback(attr.dndInserted, event, index, transferredObject);
         });
-        invokeCallback(attr.dndInserted, event, index, transferredObject);
 
         // In Chrome on Windows the dropEffect will always be none...
         // We have to determine the actual effect manually from the allowed effects
